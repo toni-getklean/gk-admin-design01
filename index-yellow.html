@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>GetKlean Admin Dashboard Overview</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --font-family-sans: 'Montserrat', sans-serif;
+        }
+        :root {
+            --primary: #3886C8;
+            --primary-foreground: #FFFFFF;
+            --secondary: #FFEB3B;
+            --secondary-foreground: #0F172A;
+            --muted: #F1F5F9;
+            --muted-foreground: #64748B;
+            --accent: #F1F5F9;
+            --accent-foreground: #0F172A;
+            --destructive: #EF4444;
+            --destructive-foreground: #FFFFFF;
+            --border: #E2E8F0;
+            --input: #E2E8F0;
+            --ring: #3886C8;
+            --background: #F8FAFC;
+            --foreground: #020617;--sidebar-bg: #FFFFFF;
+            --sidebar-fg: #0F172A;
+            --sidebar-muted: #E2E8F0;--sidebar-accent: #F1F5F9;--radius: 0.5rem;
+            --sidebar-width: 260px;
+            --topbar-height: 64px;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            -webkit-font-smoothing: antialiased;
+        }.card {
+            background-color: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+        .card-header {
+            padding: 1.5rem 1.5rem 0.75rem 1.5rem;
+        }
+        .card-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            line-height: 1;
+            letter-spacing: -0.01em;
+            color: var(--foreground);
+        }
+        .card-description {
+            font-size: 0.75rem;
+            color: var(--muted-foreground);
+            margin-top: 0.375rem;
+        }
+        .card-content {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+        }.nav-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0.75rem;
+            margin-bottom: 0.25rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 0.375rem;
+            color: #0F172A;transition: all 0.2s;
+        }
+        .nav-item:hover {
+            background-color: var(--sidebar-accent);
+            color: var(--sidebar-fg);
+        }
+        .nav-item.active {
+            background-color: #FFEB3B;
+            color: #0F172A;
+            font-weight: 600;
+        }
+        .nav-item .material-symbols-outlined {
+            font-size: 1.25rem;
+            color: currentColor;
+        }.bar-chart-container {
+            display: flex;
+            align-items: flex-end;
+            gap: 12px;
+            height: 240px;
+            padding-bottom: 10px;
+        }
+        .bar-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            height: 100%;
+            justify-content: flex-end;
+        }
+        .chart-bar {
+            width: 100%;
+            background-color: var(--primary);
+            border-radius: 4px 4px 0 0;
+            transition: height 0.3s ease;
+        }
+        .chart-bar:hover {
+            opacity: 0.9;
+        }.btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            height: 2.25rem;
+            padding: 0 1rem;
+            transition: colors 0.2s;
+            outline: none;
+        }
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--primary-foreground);
+        }
+        .btn-primary:hover {
+            background-color: #2863A4;
+        }
+        .btn-outline {
+            border: 1px solid var(--input);
+            background-color: transparent;
+            color: var(--foreground);
+        }
+        .btn-outline:hover {
+            background-color: var(--accent);
+        }.topbar-logo-text {
+             font-family: 'Montserrat', sans-serif;
+             font-weight: 800;
+        }
+    </style>
+</head>
+
+<body class="flex h-screen overflow-hidden">
+    <aside
+        class="fixed left-0 top-0 bottom-0 w-[var(--sidebar-width)] flex flex-col z-50 transition-transform bg-white border-r border-slate-200">
+        <div class="h-[var(--topbar-height)] flex items-center px-6 border-b border-slate-100">
+            <div class="flex items-center gap-2">
+                <div class="flex flex-col">
+                    <div class="bg-[var(--primary)] px-2 py-1 rounded-md flex items-center">
+                        <h1 class="text-xl tracking-tight leading-none topbar-logo-text">
+                            <span style="color: #FFEB3B;">GET</span><span style="color: #FFFFFF;">KLEAN</span>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+            <div class="mb-4 px-2 text-[10px] font-bold uppercase tracking-wider text-slate-500">Overview</div>
+            <a class="nav-item active" href="#">
+                <span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+            <a class="nav-item" href="#">
+                <span class="material-symbols-outlined">analytics</span>
+                Analytics
+            </a>
+            <div class="mt-8 mb-4 px-2 text-[10px] font-bold uppercase tracking-wider text-slate-500">Management</div>
+            <a class="nav-item" href="#">
+                <span class="material-symbols-outlined">calendar_add_on</span>
+                Bookings
+            </a>
+            <a class="nav-item" href="#">
+                <span class="material-symbols-outlined">groups</span>
+                Housemaids
+            </a>
+            <a class="nav-item" href="#">
+                <span class="material-symbols-outlined">person</span>
+                Customers
+            </a>
+            <div class="mt-8 mb-4 px-2 text-[10px] font-bold uppercase tracking-wider text-slate-500">Finance</div>
+            <a class="nav-item" href="#">
+                <span class="material-symbols-outlined">payments</span>
+                Transactions
+            </a>
+            <a class="nav-item" href="#">
+                <span class="material-symbols-outlined">receipt_long</span>
+                Invoices
+            </a>
+        </nav>
+        <div class="p-4 border-t border-slate-100">
+            <a class="nav-item text-red-600 hover:text-red-700 hover:bg-red-50" href="#">
+                <span class="material-symbols-outlined">logout</span>
+                Sign Out
+            </a>
+        </div>
+    </aside>
+    <div class="flex flex-col flex-1 ml-[var(--sidebar-width)] h-full bg-[#F8FAFC]">
+        <header
+            class="h-[var(--topbar-height)] flex items-center justify-between px-8 bg-white border-b border-[var(--border)] sticky top-0 z-40">
+            <div class="flex items-center gap-4">
+                <h2 class="text-lg font-semibold text-slate-800">Dashboard Overview</h2>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                        <span class="material-symbols-outlined text-slate-400 text-[18px]">search</span>
+                    </span>
+                    <input
+                        class="h-9 w-64 rounded-md border border-slate-200 bg-slate-50 pl-9 pr-4 text-sm outline-none focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] placeholder:text-slate-400"
+                        placeholder="Search..." type="text" />
+                </div>
+                <button class="relative rounded-full p-2 text-slate-500 hover:bg-slate-100 transition-colors">
+                    <span class="material-symbols-outlined text-[20px]">notifications</span>
+                    <span class="absolute top-2 right-2 h-2 w-2 rounded-full bg-red-500 ring-2 ring-white"></span>
+                </button>
+                <div class="h-8 w-[1px] bg-slate-200 mx-1"></div>
+                <div class="flex items-center gap-3">
+                    <div class="text-right hidden sm:block">
+                        <p class="text-sm font-medium text-slate-900">Juan dela Cruz</p>
+                        <p class="text-xs text-slate-500">Super Admin</p>
+                    </div>
+                    <div
+                        class="h-9 w-9 rounded-full bg-[var(--primary)] text-white flex items-center justify-center text-sm font-semibold ring-2 ring-offset-2 ring-slate-100">
+                        JD
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="flex-1 overflow-y-auto p-8">
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h1 class="text-3xl font-bold tracking-tight text-slate-900">Dashboard</h1>
+                    <p class="text-slate-500 mt-1">Overview of your cleaning operations and performance.</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button class="btn btn-outline bg-white shadow-sm">
+                        <span class="material-symbols-outlined text-[18px] mr-2">download</span>
+                        Download
+                    </button>
+                    <button class="btn btn-primary shadow-sm">
+                        <span class="material-symbols-outlined text-[18px] mr-2">add</span>
+                        New Booking
+                    </button>
+                </div>
+            </div>
+            <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-8">
+                <div class="card p-6">
+                    <div class="flex items-center justify-between space-y-0 pb-2">
+                        <p class="text-sm font-medium text-slate-500">Total Bookings</p>
+                        <span class="material-symbols-outlined text-slate-400 text-[18px]">list_alt</span>
+                    </div>
+                    <div class="flex items-baseline gap-2">
+                        <div class="text-2xl font-bold text-slate-900">42</div>
+                        <span class="text-xs text-emerald-600 font-medium">+12%</span>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-1">Requests received today</p>
+                </div>
+                <div class="card p-6">
+                    <div class="flex items-center justify-between space-y-0 pb-2">
+                        <p class="text-sm font-medium text-slate-500">Active Cleaners</p>
+                        <span class="material-symbols-outlined text-slate-400 text-[18px]">cleaning_services</span>
+                    </div>
+                    <div class="flex items-baseline gap-2">
+                        <div class="text-2xl font-bold text-slate-900">36</div>
+                        <span class="text-xs text-slate-500 font-medium">/ 56 Total</span>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-1">Currently on duty</p>
+                </div>
+                <div class="card p-6">
+                    <div class="flex items-center justify-between space-y-0 pb-2">
+                        <p class="text-sm font-medium text-slate-500">Daily Revenue</p>
+                        <span class="material-symbols-outlined text-slate-400 text-[18px]">payments</span>
+                    </div>
+                    <div class="flex items-baseline gap-2">
+                        <div class="text-2xl font-bold text-slate-900">₱19,800</div>
+                        <span class="text-xs text-emerald-600 font-medium">+8.2%</span>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-1">Gross volume today</p>
+                </div>
+                <div class="card p-6">
+                    <div class="flex items-center justify-between space-y-0 pb-2">
+                        <p class="text-sm font-medium text-slate-500">Pending Actions</p>
+                        <span class="material-symbols-outlined text-slate-400 text-[18px]">warning</span>
+                    </div>
+                    <div class="flex items-baseline gap-2">
+                        <div class="text-2xl font-bold text-slate-900">5</div>
+                        <span class="text-xs text-amber-600 font-medium">Needs Attention</span>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-1">Unassigned bookings</p>
+                </div>
+            </div>
+            <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-7 mb-8">
+                <div class="card col-span-4">
+                    <div class="card-header border-b border-slate-100">
+                        <h3 class="card-title">Weekly Booking Trends</h3>
+                        <p class="card-description">Number of cleaning sessions per day.</p>
+                    </div>
+                    <div class="card-content pt-6">
+                        <div class="bar-chart-container w-full px-2">
+                            <div class="bar-wrapper group">
+                                <div class="chart-bar group-hover:bg-[#2863A4]" style="height: 45%;"></div>
+                                <span class="text-xs text-slate-400 font-medium">Mon</span>
+                            </div>
+                            <div class="bar-wrapper group">
+                                <div class="chart-bar group-hover:bg-[#2863A4]" style="height: 60%;"></div>
+                                <span class="text-xs text-slate-400 font-medium">Tue</span>
+                            </div>
+                            <div class="bar-wrapper group">
+                                <div class="chart-bar group-hover:bg-[#2863A4]" style="height: 35%;"></div>
+                                <span class="text-xs text-slate-400 font-medium">Wed</span>
+                            </div>
+                            <div class="bar-wrapper group">
+                                <div class="chart-bar bg-[#FFEB3B] group-hover:opacity-100 opacity-90"
+                                    style="height: 75%;"></div>
+                                <span class="text-xs text-slate-900 font-bold">Thu</span>
+                            </div>
+                            <div class="bar-wrapper group">
+                                <div class="chart-bar group-hover:bg-[#2863A4]" style="height: 85%;"></div>
+                                <span class="text-xs text-slate-400 font-medium">Fri</span>
+                            </div>
+                            <div class="bar-wrapper group">
+                                <div class="chart-bar group-hover:bg-[#2863A4]" style="height: 95%;"></div>
+                                <span class="text-xs text-slate-400 font-medium">Sat</span>
+                            </div>
+                            <div class="bar-wrapper group">
+                                <div class="chart-bar group-hover:bg-[#2863A4]" style="height: 55%;"></div>
+                                <span class="text-xs text-slate-400 font-medium">Sun</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card col-span-3">
+                    <div class="card-header border-b border-slate-100">
+                        <h3 class="card-title">Staff Availability</h3>
+                        <p class="card-description">Real-time status of 56 total housemaids.</p>
+                    </div>
+                    <div class="card-content pt-6">
+                        <div class="space-y-6">
+                            <div class="flex items-center">
+                                <div class="flex items-center gap-4 w-full">
+                                    <span class="flex h-2 w-2 rounded-full bg-[var(--primary)]"></span>
+                                    <div class="flex-1 space-y-1">
+                                        <p class="text-sm font-medium leading-none text-slate-900">Available</p>
+                                        <div class="h-2 w-full rounded-full bg-slate-100 overflow-hidden">
+                                            <div class="h-full bg-[var(--primary)]" style="width: 65%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="font-bold text-slate-900 text-sm">36</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="flex items-center gap-4 w-full">
+                                    <span class="flex h-2 w-2 rounded-full bg-[#FFEB3B]"></span>
+                                    <div class="flex-1 space-y-1">
+                                        <p class="text-sm font-medium leading-none text-slate-900">On Duty</p>
+                                        <div class="h-2 w-full rounded-full bg-slate-100 overflow-hidden">
+                                            <div class="h-full bg-[#FFEB3B]" style="width: 20%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="font-bold text-slate-900 text-sm">12</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="flex items-center gap-4 w-full">
+                                    <span class="flex h-2 w-2 rounded-full bg-slate-300"></span>
+                                    <div class="flex-1 space-y-1">
+                                        <p class="text-sm font-medium leading-none text-slate-900">Unavailable</p>
+                                        <div class="h-2 w-full rounded-full bg-slate-100 overflow-hidden">
+                                            <div class="h-full bg-slate-300" style="width: 15%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="font-bold text-slate-900 text-sm">8</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8 rounded-md bg-slate-50 p-4 border border-slate-100">
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-slate-500">info</span>
+                                <p class="text-xs text-slate-500">8 staff members are on scheduled leave or sick leave
+                                    today.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-8">
+                <div class="card-header flex flex-row items-center justify-between border-b border-slate-100">
+                    <div>
+                        <h3 class="card-title">Recent Bookings</h3>
+                        <p class="card-description">Latest transactions and booking statuses.</p>
+                    </div>
+                    <button class="text-sm text-[var(--primary)] hover:underline font-medium">View All</button>
+                </div>
+                <div class="p-0 overflow-x-auto">
+                    <table class="w-full text-sm text-left">
+                        <thead class="text-xs text-slate-500 uppercase bg-slate-50 border-b border-slate-100">
+                            <tr>
+                                <th class="px-6 py-3 font-medium">Customer</th>
+                                <th class="px-6 py-3 font-medium">Service</th>
+                                <th class="px-6 py-3 font-medium">Status</th>
+                                <th class="px-6 py-3 font-medium">Amount</th>
+                                <th class="px-6 py-3 font-medium text-right">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <tr class="bg-white hover:bg-slate-50 transition-colors">
+                                <td class="px-6 py-4 font-medium text-slate-900">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="h-8 w-8 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold text-slate-600">
+                                            MJ</div>
+                                        <span>Maria Juana</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-slate-600">Deep Cleaning (3hrs)</td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+                                        Completed
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 font-medium text-slate-900">₱1,200.00</td>
+                                <td class="px-6 py-4 text-right text-slate-500">Oct 26, 2:30 PM</td>
+                            </tr>
+                            <tr class="bg-white hover:bg-slate-50 transition-colors">
+                                <td class="px-6 py-4 font-medium text-slate-900">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="h-8 w-8 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold text-slate-600">
+                                            PT</div>
+                                        <span>Peter Tan</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-slate-600">Standard Clean (2hrs)</td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                        In Progress
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 font-medium text-slate-900">₱850.00</td>
+                                <td class="px-6 py-4 text-right text-slate-500">Oct 26, 3:15 PM</td>
+                            </tr>
+                            <tr class="bg-white hover:bg-slate-50 transition-colors">
+                                <td class="px-6 py-4 font-medium text-slate-900">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="h-8 w-8 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold text-slate-600">
+                                            AS</div>
+                                        <span>Anna Santos</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-slate-600">Ironing Service</td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">
+                                        Pending
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 font-medium text-slate-900">₱450.00</td>
+                                <td class="px-6 py-4 text-right text-slate-500">Oct 26, 4:00 PM</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <footer class="mt-auto pt-6 border-t border-slate-200">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-xs text-slate-500">© 2024 GetKlean PH. All rights reserved.</p>
+                    <div class="flex gap-6">
+                        <a class="text-xs text-slate-500 hover:text-slate-900 transition-colors" href="#">Terms</a>
+                        <a class="text-xs text-slate-500 hover:text-slate-900 transition-colors" href="#">Privacy</a>
+                        <a class="text-xs text-slate-500 hover:text-slate-900 transition-colors" href="#">Support</a>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+</body>
+
+</html>

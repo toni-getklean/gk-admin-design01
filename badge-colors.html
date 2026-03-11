@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GetKlean Badge Colors</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3886C8',
+                        success: '#2E7D32',
+                        warning: '#EF6C00',
+                        info: '#0288D1',
+                        destructive: '#D32F2F',
+                        neutral: {
+                            500: '#757575',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f8fafc;
+            padding: 3rem;
+            color: #0f172a;
+        }
+        .section {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        }
+        .badge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .badge-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 0.375rem;
+            padding: 0.25rem 0.625rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-3xl font-bold mb-8">GetKlean Admin Badge Colors</h1>
+
+    <!-- A. Service Types -->
+    <div class="section">
+        <h2 class="text-xl font-semibold mb-2 text-slate-800">A. Service Types</h2>
+        <p class="text-sm text-slate-500 mb-6">Service types usually specify the scope of the cleaning.</p>
+        <div class="badge-grid">
+            <div class="badge-card">
+                <div>
+                    <div class="font-medium text-slate-800">Regular</div>
+                    <div class="text-xs text-slate-500 mt-1">bg-slate-100 text-slate-700</div>
+                </div>
+                <span class="badge bg-slate-100 text-slate-700">Regular</span>
+            </div>
+            <div class="badge-card">
+                <div>
+                    <div class="font-medium text-slate-800">Plus</div>
+                    <div class="text-xs text-slate-500 mt-1">bg-blue-50 text-primary</div>
+                </div>
+                <span class="badge bg-blue-50 text-primary">Plus</span>
+            </div>
+            <div class="badge-card">
+                <div>
+                    <div class="font-medium text-slate-800">All-in</div>
+                    <div class="text-xs text-slate-500 mt-1">bg-amber-50 text-amber-700</div>
+                </div>
+                <span class="badge bg-amber-50 text-amber-700">All-in</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- B. Booking Types -->
+    <div class="section">
+        <h2 class="text-xl font-semibold mb-2 text-slate-800">B. Booking Types</h2>
+        <p class="text-sm text-slate-500 mb-6">Booking types refer to the customer's subscription or booking frequency.</p>
+        <div class="badge-grid">
+            <div class="badge-card">
+                <div>
+                    <div class="font-medium text-slate-800">Trial</div>
+                    <div class="text-xs text-slate-500 mt-1">bg-purple-50 text-purple-700</div>
+                </div>
+                <span class="badge bg-purple-50 text-purple-700">Trial</span>
+            </div>
+            <div class="badge-card">
+                <div>
+                    <div class="font-medium text-slate-800">One-time</div>
+                    <div class="text-xs text-slate-500 mt-1">bg-green-50 text-success</div>
+                </div>
+                <span class="badge bg-green-50 text-success">One-time</span>
+            </div>
+            <div class="badge-card">
+                <div>
+                    <div class="font-medium text-slate-800">Flexi</div>
+                    <div class="text-xs text-slate-500 mt-1">bg-orange-50 text-warning</div>
+                </div>
+                <span class="badge bg-orange-50 text-warning">Flexi</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- C. Booking Statuses -->
+    <div class="section">
+        <h2 class="text-xl font-semibold mb-2 text-slate-800">C. Booking Statuses</h2>
+        <p class="text-sm text-slate-500 mb-6">These are the 11 standardized DB seed properties using semantic Tailwind colors with 20% opacity backgrounds.</p>
+        <div class="badge-grid">
+            
+            <!-- Warning block: needs_confirmation, pending_review, rescheduled -->
+            <div class="badge-card">
+                <div>
+                    <div class="font-medium text-slate-800">needs_confirmation</div>
+                    <div class="text-xs text-slate-500 mt-1">bg-warning/20 text-warning</div>
+                </div>
+                <span class="badge" style="background-color: rgb(239 108 0 / 0.2); color: #EF6C00;">Needs Confirmation</span>
+            </div>
+            <div class="badge-card">
+                <div>
+                    <div class="font-medium text-slate-800">pending_review</div>
+                    <div class="text-xs text-slate-500 mt-1">bg-warning/20 text-warning</div>
+                </div>
+                <span class="badge" style="background-color: rgb(239 108 0 / 0.2); color: #EF6C00;">Pending Review</span>
+            </div>
+            <div class="badge-card">
+                <div>
+                    <div class="font-medium text-slate-800">rescheduled</div>
+                    <div class="text-xs text-slate-500 mt-1">bg-warning/20 text-warning</div>
+                </div>
+                <span class="badge" style="background-color: rgb(239 108 0 / 0.2); color: #EF6C00;">Rescheduled</span>
+            </div>
+
+            <!-- Success block: accepted, completed -->
+            <div class="badge-card">
+                <div>
+                    <div class="font-medium text-slate-800">accepted</div>
+                    <div class="text-xs text-slate-500 mt-1">bg-success/20 text-success</div>
+                </div>
+                <span class="badge" style="background-color: rgb(46 125 50 / 0.2); color: #2E7D32;">Accepted</span>
+            </div>
+            <div class="badge-card">
+                <div>
+                    <div class="font-medium text-slate-800">completed</div>
+                    <div class="text-xs text-slate-500 mt-1">bg-success/20 text-success</div>
+                </div>
+                <span class="badge" style="background-color: rgb(46 125 50 / 0.2); color: #2E7D32;">Completed</span>
+            </div>
+
+            <!-- Primary Subtle block: dispatched, on_the_way, arrived -->
+            <div class="badge-card">
+                <div>
+                    <div class="font-medium text-slate-800">dispatched</div>
+                    <div class="text-xs text-slate-500 mt-1">bg-primary/20 text-primary</div>
+                </div>
+                <span class="badge" style="background-color: rgb(56 134 200 / 0.2); color: #3886C8;">Dispatched</span>
+            </div>
+            <div class="badge-card">
+                <div>
+                    <div class="font-medium text-slate-800">on_the_way</div>
+                    <div class="text-xs text-slate-500 mt-1">bg-primary/20 text-primary</div>
+                </div>
+                <span class="badge" style="background-color: rgb(56 134 200 / 0.2); color: #3886C8;">On The Way</span>
+            </div>
+            <div class="badge-card">
+                <div>
+                    <div class="font-medium text-slate-800">arrived</div>
+                    <div class="text-xs text-slate-500 mt-1">bg-primary/20 text-primary</div>
+                </div>
+                <span class="badge" style="background-color: rgb(56 134 200 / 0.2); color: #3886C8;">Arrived</span>
+            </div>
+
+            <!-- Info block: in_progress -->
+            <div class="badge-card">
+                <div>
+                    <div class="font-medium text-slate-800">in_progress</div>
+                    <div class="text-xs text-slate-500 mt-1">bg-info/20 text-info</div>
+                </div>
+                <span class="badge" style="background-color: rgb(2 136 209 / 0.2); color: #0288D1;">In Progress</span>
+            </div>
+
+            <!-- Destructive Subtle block: cancelled, no_show -->
+            <div class="badge-card">
+                <div>
+                    <div class="font-medium text-slate-800">cancelled</div>
+                    <div class="text-xs text-slate-500 mt-1">bg-destructive/20 text-destructive</div>
+                </div>
+                <span class="badge" style="background-color: rgb(211 47 47 / 0.2); color: #D32F2F;">Cancelled</span>
+            </div>
+            <div class="badge-card">
+                <div>
+                    <div class="font-medium text-slate-800">no_show</div>
+                    <div class="text-xs text-slate-500 mt-1">bg-destructive/20 text-destructive</div>
+                </div>
+                <span class="badge" style="background-color: rgb(211 47 47 / 0.2); color: #D32F2F;">No Show</span>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
